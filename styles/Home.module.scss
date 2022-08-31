@@ -1,0 +1,20 @@
+.container {
+  padding: 0 2rem;
+  display: grid;
+  justify-content: center;
+}
+
+.sprites_container {
+  width: 100%;
+  display: flex;
+}
+
+.type {
+  font-size: 1.2rem;
+  font-weight: 600;
+  &:nth-of-type(2){
+    &::before{
+      content: " / "
+    }
+  }
+}
