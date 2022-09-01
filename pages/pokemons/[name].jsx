@@ -40,8 +40,15 @@ export default function Pokemon({pokemon}){
   )
 }
 
-export async function getServerSideProps(context) {
-  const { name } = context.query
+export async function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: true
+  }
+}
+
+export async function getStaticProps(context) {
+  const { name } = context.params
   const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
   return {
     props: {
