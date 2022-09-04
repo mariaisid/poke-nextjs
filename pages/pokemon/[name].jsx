@@ -7,14 +7,14 @@ export default function Pokemon({pokemon}){
   return (
     <div className={styles.container}>
       <h1>
-        {pokemon.name}
+        {pokemon?.name}
       </h1>
       <div className={styles.sprites_container}>
-        {pokemon.sprites.front_default && <Image src={pokemon.sprites.front_default} width={500} height={500}></Image>}
-        {pokemon.sprites.front_shiny && <Image src={pokemon.sprites.front_shiny} width={500} height={500}></Image>}
+        {pokemon?.sprites?.front_default && <Image src={pokemon?.sprites?.front_default} width={500} height={500}></Image>}
+        {pokemon?.sprites?.front_shiny && <Image src={pokemon?.sprites?.front_shiny} width={500} height={500}></Image>}
       </div>
       <div>
-        {pokemon.types.map((type, index) => <span className={styles.type} key={index}>{type.type.name}</span>)}
+        {pokemon?.types.map((type, index) => <span className={styles.type} key={index}>{type.type.name}</span>)}
       </div>
       <HTMLTable bordered={true} striped={true}>
         <thead>
@@ -24,13 +24,13 @@ export default function Pokemon({pokemon}){
           </tr>
         </thead>
         <tbody>
-          {pokemon.moves.filter(move => move.version_group_details[0].level_learned_at > 0).map((move, index) =>
+          {pokemon?.moves?.filter(move => move.version_group_details[0].level_learned_at > 0).map((move, index) =>
             <tr key={index}>
               <td>
-                {move.move.name}
+                {move?.move?.name}
               </td>
               <td>
-                {move.version_group_details[0].level_learned_at}
+                {move?.version_group_details[0]?.level_learned_at}
               </td>
             </tr>
           )}
